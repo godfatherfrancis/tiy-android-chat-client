@@ -47,9 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         // adding whats in our txt field to item and adding to array then clearing screen
         String incomingMessage = text.getText().toString();
-        messages.add(incomingMessage);
+        String serverMessage = chatClient.sendMessage(incomingMessage);
+        messages.add(serverMessage);
         text.setText("");
-        chatClient.sendMessage(incomingMessage);
+
     }
 
     @Override
